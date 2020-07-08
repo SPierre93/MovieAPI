@@ -1,0 +1,160 @@
+*
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body
+{
+    font-family: 'Comfortaa', cursive;
+    font-family: 'Englebert', sans-serif;
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #b5e80b;
+}
+
+body > div
+{
+    grid-column-start: 2;
+    grid-row-start: 1;
+}
+
+
+/* NAVIGATON BAR */
+nav                                                  /* Navigation section */
+{
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    height: 100vh;
+}
+
+nav a                                                /* all Navigation links */
+{
+    text-decoration: none;
+    color: #000;
+    font-size: 1.3rem;
+    display: inline-block;
+}
+
+nav > div > img, nav                                  /* logo image and full Navigation section */
+{
+    width: 240px;;
+}
+
+nav > ul                                              /* Navigation links section */
+{
+    margin-bottom: 50px;
+}
+
+nav > ul > li                                         /* Navigation list */
+{
+    font-family: 'Comfortaa', cursive;
+    list-style: none;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+}
+
+nav > ul > li > a                                       /* Navigation links */
+{
+    padding: 4px;
+}  
+
+nav > ul > li > a:hover                                 /* Navigation links hover styles */
+{
+    border: 1px solid #ff0b76;
+    border-radius: 5px;
+    background-color: #ff0b76;
+    color: #fff;
+}
+
+nav > div:nth-child(3)                                   /* social media section */
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 20px 40px 0 40px;
+    justify-items: center;
+}
+
+nav > div > a                                           /* social media icons */
+{
+    font-size: 2.3rem;
+    padding-right: 5px;
+    color: #ff0b76;
+}
+
+nav > div > a:hover                                      /* social media icons hove styles */
+{
+    color: #838383;
+}
+
+nav > div > p                                             /* Affiliate note */
+{
+    font-size: 0.8rem;
+    color: #838383;
+    margin: 20px;
+    text-align: center;
+}
+
+
+/* HOME PAGE */
+
+
+
+/* RELEASES PAGE */
+#releaseCoverImage
+{
+    position: absolute;
+    background-image: url("");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    height: 90%;
+    width: 100%;
+    z-index: -1;
+}
+
+#releasesPageContainer > main
+{
+    padding: 90px 50px;
+    background-color: #fff;
+
+}
+
+#releasesPageContainer section
+{
+    padding-bottom: 100px;
+}
+
+#releasesPageContainer h2
+{
+    font-family: 'Comfortaa', cursive;
+    font-weight: 400;
+    font-size: 2.5rem;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+    border-bottom: 0.5px solid #838383;
+}
+
+
+/* MOVIE DETAILS PAGE */
+
+
+
+/* INFORMATION PAGE */
+
+
+
+/* PROMOTIONS PAGE */
+
+
+
+/* CONTACT US PAGE */
+
+
+
+/* MEDIA QUERIES */

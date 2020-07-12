@@ -5,6 +5,12 @@
     box-sizing: border-box;
 }
 
+:root
+{
+    --background-color: #fff;
+    --accent-color: #ff0b76;
+}
+
 body
 {
     font-family: 'Comfortaa', cursive;
@@ -13,13 +19,28 @@ body
     grid-template-columns: 1fr 6fr;
     max-width: 1200px;
     margin: 0 auto;
-    background-color: #b5e80b;
+    background-color: var(--background-color);
 }
 
-body > div
+body > div, footer
 {
     grid-column-start: 2;
     grid-row-start: 1;
+}
+
+h1, h2, h3, h4
+{
+    font-family: 'Comfortaa', cursive;
+}
+
+p
+{
+    font-family: 'Englebert', sans-serif;
+}
+
+.headerHighlight
+{
+    color: #ffef63;
 }
 
 
@@ -28,7 +49,7 @@ nav                                                  /* Navigation section */
 {
     position: sticky;
     top: 0;
-    background-color: #fff;
+    background-color: var(--background-color);
     height: 100vh;
 }
 
@@ -66,9 +87,9 @@ nav > ul > li > a                                       /* Navigation links */
 
 nav > ul > li > a:hover                                 /* Navigation links hover styles */
 {
-    border: 1px solid #ff0b76;
+    border: 1px solid var(--accent-color);
     border-radius: 5px;
-    background-color: #ff0b76;
+    background-color: var(--accent-color);
     color: #fff;
 }
 
@@ -84,7 +105,7 @@ nav > div > a                                           /* social media icons */
 {
     font-size: 2.3rem;
     padding-right: 5px;
-    color: #ff0b76;
+    color: var(--accent-color);
 }
 
 nav > div > a:hover                                      /* social media icons hove styles */
@@ -92,37 +113,192 @@ nav > div > a:hover                                      /* social media icons h
     color: #838383;
 }
 
-nav > div > p                                             /* Affiliate note */
+
+/* FOOTER */
+footer                                               /* Footer section */
+{
+    align-self: end;
+    padding: 50px 50px 20px 50px;
+    text-align: center;
+    background-color: var(--background-color);
+    color: #000;
+    border-top: 1px solid #eaeaea;
+}
+
+footer > section:first-child                         /* top section in Footer */
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding-bottom: 20px;
+}
+
+footer > section > div > i                           /* subsection icons */
+{
+    padding-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.footerLogos                                         /* icons for social media links/logos */
+{
+    font-size: 1.7rem;
+    padding-right: 10px;
+    color: #999999;
+}
+
+footer > section > div > div                        /* Section for social media links/logos */
+{
+    align-items: center;
+}
+
+footer h3                                           /* Footer headings */
+{
+    padding-bottom: 15px;
+}
+
+footer p                                            /* Footer paragraph content */
 {
     font-size: 0.8rem;
-    color: #838383;
+}
+
+#affiliateNote                                      /* Affiliate note */
+{
+    font-size: 0.8rem;
+    color: #fff;
     margin: 20px;
     text-align: center;
 }
 
 
-/* HOME PAGE */
+/* HOME PAGE*/
+#homePageContainer > main                                   /* Main sectinon of Home page */
+{
+    padding: 0 50px 90px 50px;
+}
 
+#homePageContainer > main > section:last-child              /* last section of Home page */
+{
+    margin-bottom: 300px;
+}
+
+#homePageContainer h2                                       /* All secondary subheadings*/
+{
+    padding: 50px 0 10px 0;
+    margin-bottom: 25px;
+    color: var(--accent-color);
+    font-weight: 400;
+    font-size: 2.5rem;
+    border-bottom: 0.5px solid var(--accent-color);
+}
+
+#infoSectGrid                                               /* Information section grid */
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 100px;
+    padding: 100px 0;
+}
+
+#infoSectGrid > div > h3                                    /* every tertiary subheading in the Information grid */
+{
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+    padding-left: 30px;
+}
+
+#infoSectGrid > div > p:last-child                          /* every last paragraph in the Information grid */
+{
+    padding-bottom: 20px;
+}
+
+#infoSectGrid p                                             /* all paragraphs in the Information grid */
+{
+    padding: 0 30px;
+}
+
+#infoSectGrid > img                                         /* all images in information grid */
+{
+    width: 400px;
+    border-radius: 20px;
+}
+
+/* HOME PROMOTIONS */
+#homePageContainer iframe                                   /* YouTube video styles */
+{
+    width: 900px;
+    height: 95vh;
+    padding-top: 100px;
+}
+
+#promoGrid                                                  /* Promotions grid */
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 25px;
+    row-gap: 25px;
+}
+
+#promoGrid > div                                            /* each block in the Promo grid */
+{
+    text-align: center;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    padding: 25px;
+}
+
+#homePageContainer h3                                           /* Promo types */
+{
+    padding: 10px 0;
+    font-weight: 600;
+}
+
+#homePageContainer h4                                              /* Costs */
+{
+    font-size: 2.5rem;
+    padding: 15px 0
+}
+
+#promoGrid > div > p                                              /* paragraphs in Promo grid */
+{
+    padding: 10px 15px;
+    line-height: 20px;
+}
+
+.classicHighlight                                                 /* colour code for Classic Promos */
+{
+    background-color: var(--accent-color);
+    color: #fff;
+}
+
+.deluxHighlight                                                     /* colour code for Delux Promos */
+{
+    background-color: #9ac706;
+    color: #fff;
+}
+
+.premiumHighlight                                                   /* colour code for Premium Promos */
+{
+    background-color: #dd3bc3;
+    color: #fff;
+}
 
 
 /* RELEASES PAGE */
 #releaseCoverImage
 {
     position: absolute;
-    background-image: url("");
+    background-image: url("../img/ReleasesPageHero.png");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-    height: 90%;
-    width: 100%;
-    z-index: -1;
+    height: 100vh;
+    width: 60%;
+    z-index: 1;
 }
 
 #releasesPageContainer > main
 {
-    padding: 90px 50px;
-    background-color: #fff;
-
+    padding: 0 50px 90px 50px;
+    background-color: var(--background-color);
 }
 
 #releasesPageContainer section
@@ -130,14 +306,42 @@ nav > div > p                                             /* Affiliate note */
     padding-bottom: 100px;
 }
 
-#releasesPageContainer h2
+#releasesPageContainer section:first-child
 {
-    font-family: 'Comfortaa', cursive;
+    width: 600px;
+    height: 100vh;
+}
+
+#releasesPageContainer section:nth-child(2)
+{
+    padding-top: 50px;
+}
+
+#releasesPageContainer h1                                               /* text on hero image */
+{
+    position: relative;
+    z-index: 2;
+    font-size: 5rem;
+    color: #fff;
+    padding: 40px 100px 0 60px;
+    text-align: start;
+    width: 100%;
+    text-shadow: 3px 3px #000;
+}
+
+#releasesPageContainer section:last-child                               /* final section on page */
+{
+    margin-bottom: 300px;
+}
+
+#releasesPageContainer h2                                                /* all main headings on Release Pg */
+{
     font-weight: 400;
     font-size: 2.5rem;
     padding-bottom: 10px;
     margin-bottom: 25px;
-    border-bottom: 0.5px solid #838383;
+    border-bottom: 0.5px solid var(--accent-color);
+    color: var(--accent-color);
 }
 
 

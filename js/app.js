@@ -1,21 +1,3 @@
-class Movie
-{
-    posterImage;
-    title;
-    synopsis;
-    releaseDate;
-    rating;
-
-    constructor(pI,t,s,rD,r)
-    {
-        this.posterImage = pI;
-        this.title = t;
-        this.synopsis = s;
-        this.releaseDate = rD;
-        this.rating = r;
-    }
-}
-
 const main=()=>
 {
     //Fetched pages
@@ -32,7 +14,8 @@ const main=()=>
     ticketsPage.style.display="none";
     eventBooking.style.display="none";
     contactPage.style.display="none";
-
+    navigationButtons[0].style.borderBottom="3px solid #ff0b76";
+    
     
     //Navigation Sidebar
     navigationButtons.forEach(function(button){
@@ -44,6 +27,12 @@ const main=()=>
                 ticketsPage.style.display="none";
                 eventBooking.style.display="none";
                 contactPage.style.display="none";
+
+                navigationButtons[0].style.borderBottom="3px solid #ff0b76";
+                navigationButtons[1].style.borderBottom="none";
+                navigationButtons[2].style.borderBottom="none";
+                navigationButtons[3].style.borderBottom="none";
+                navigationButtons[4].style.borderBottom="none";
             }
 
             else if(button == navigationButtons[1])         //Releases button
@@ -53,6 +42,12 @@ const main=()=>
                 ticketsPage.style.display="none";
                 eventBooking.style.display="none";
                 contactPage.style.display="none";
+
+                navigationButtons[0].style.borderBottom="none";
+                navigationButtons[1].style.borderBottom="3px solid #ff0b76";
+                navigationButtons[2].style.borderBottom="none";
+                navigationButtons[3].style.borderBottom="none";
+                navigationButtons[4].style.borderBottom="none";
             }
 
             else if(button == navigationButtons[2])         //Information button
@@ -62,6 +57,12 @@ const main=()=>
                 ticketsPage.style.display="block";
                 eventBooking.style.display="none";
                 contactPage.style.display="none";
+
+                navigationButtons[0].style.borderBottom="none";
+                navigationButtons[1].style.borderBottom="none";
+                navigationButtons[2].style.borderBottom="3px solid #ff0b76";
+                navigationButtons[3].style.borderBottom="none";
+                navigationButtons[4].style.borderBottom="none";
             }
 
             else if(button == navigationButtons[3])         //Promotions button
@@ -71,6 +72,12 @@ const main=()=>
                 ticketsPage.style.display="none";
                 eventBooking.style.display="block";
                 contactPage.style.display="none";
+
+                navigationButtons[0].style.borderBottom="none";
+                navigationButtons[1].style.borderBottom="none";
+                navigationButtons[2].style.borderBottom="none";
+                navigationButtons[3].style.borderBottom="3px solid #ff0b76";
+                navigationButtons[4].style.borderBottom="none";
             }
 
             else if(button == navigationButtons[4])             //Contact us button
@@ -80,40 +87,132 @@ const main=()=>
                 ticketsPage.style.display="none";
                 eventBooking.style.display="none";
                 contactPage.style.display="block";
+
+                navigationButtons[0].style.borderBottom="none";
+                navigationButtons[1].style.borderBottom="none";
+                navigationButtons[2].style.borderBottom="none";
+                navigationButtons[3].style.borderBottom="none";
+                navigationButtons[4].style.borderBottom="3px solid #ff0b76";
             } 
         });
     });  
 
 
     //Releases Page
-    const nowPlayingEndpoint = `https://api.themoviedb.org/3/movie/now_playing?api_key=8ac083c820b140139e74b4bb0bceb932&language=en-US&page=1`;
+    document.addEventListener("DOMContentLoaded",()=>{
 
-    fetch(nowPlayingEndpoint)
-    .then(function(response){
-        response.json()
+        //NOW PLAYING SECTION  
+        const nowShowingContainer = document.querySelector("#nowShowingContainer");
+        const coreImageURL = "https://image.tmdb.org/t/p/w185_and_h278_bestv2";
+        const nowPlayingEndpoint = `https://api.themoviedb.org/3/movie/now_playing?api_key=8ac083c820b140139e74b4bb0bceb932&language=en-US&page=1`;
+        fetch(nowPlayingEndpoint) 
 
-        .then(function(data){
-            /*let movies ={
-                posterImage: "/goEW6QqoFxNI2pfbpVqmXj2WXwd.jpg",
-                title: "The Outpost",
-                synopsis: "A small unit of U.S. soldiers, alone at the remote Combat Outpost Keating, located deep in the valley of three mountains in Afghanistan, battles to defend against an overwhelming force of Taliban fighters in a coordinated attack. The Battle of Kamdesh, as it was known, was the bloodiest American engagement of the Afghan War in 2009 and Bravo Troop 3-61 CAV became one of the most decorated units of the 19-year conflict.",
-                releaseDate: "2020-06-24",
-                rating: 6.7
-            };*/
+        .then(function(response){
+            response.json()
+
+            .then(function(data){
+                let nowShowingWrapper="";
+                
+                for(let i=0; i<=8; i++)
+                {
+                   nowShowingWrapper+=
+                   `<div id="nowShowingContainer">
+                        <div class="moviePoster">
+                            <img src="${coreImageURL}${data.results[i].poster_path}" alt="Promo poster for ${data.results[i].title}">
+                        </div> 
+                        
+                        <div class="movieTitle">
+                            <h3> ${data.results[i].title} </h3>
+                        </div>
+
+                        <div class="movieSynopsis">
+                            <p> Synopsis: ${data.results[i].overview} </p>
+                        </div>
+
+                        <div class="movieReleaseDate">
+                            <p> Release date: ${data.results[i].release_date} </p>
+                        </div>
+
+                        <div class="movieRating">
+                            <p> Rating: ${data.results[i].vote_average} </p> 
+                        </div>
+                    </div>`;
+                }      
+                
+                nowShowingContainer.innerHTML = nowShowingWrapper;
+            })
+
+            .catch(function(err){
+                console.log(`Error: ${err}`)
+            });
         })
 
-        .catch(function(err){
-            console.log(`Error: ${err}`);
+        .catch(function(error){
+            console.log(`Error: ${error}`);
         });
-    })
 
-    .catch(function(error){
-        console.log(`Error: ${err}`);
+        //COMING SOON SECTION
+        const comingSoonContainer = document.querySelector("#comingSoonContainer");
+        const comingSoonEndpoint = `https://api.themoviedb.org/3/movie/upcoming?api_key=8ac083c820b140139e74b4bb0bceb932&language=en-US&page=1`;
+        fetch(comingSoonEndpoint)
+
+        .then(function(resp){
+            resp.json()
+
+            .then(function(answer){
+                let comingSoonWrapper="";
+                
+                for(let i=0; i<=8; i++)
+                {
+                    comingSoonWrapper+=
+                   `<div id="comingSoonContainer">
+                        <div class="moviePoster">
+                            <img src="${coreImageURL}${answer.results[i].poster_path}" alt="Promo poster for ${answer.results[i].title}">
+                        </div> 
+                        
+                        <div class="movieTitle">
+                            <h3> ${answer.results[i].title} </h3>
+                        </div>
+
+                        <div class="movieSynopsis">
+                            <p> Synopsis: ${answer.results[i].overview} </p>
+                        </div>
+
+                        <div class="movieReleaseDate">
+                            <p> Release date: ${answer.results[i].release_date} </p>
+                        </div>
+
+                        <div class="movieRating">
+                            <p> Rating: ${answer.results[i].vote_average} </p> 
+                        </div>
+                    </div>`;
+                }      
+                
+                comingSoonContainer.innerHTML = comingSoonWrapper;
+            })
+
+            .catch(function(e){
+                console.log(`Error: ${e}`);
+            });
+        })
+
+        .catch(function(Er){
+            console.log(`Error: ${Er}`);
+        });
     });
 
 
     //Movie details Page
     
 
+    const movieDetailsDiv = document.createElement("div");
+    movieDetailsDiv.setAttribute("class","movieDetailsPageContainer");
+/*
+    movieDetailsDiv.innerHTML=
+        `<movieDetailsH1 class="container-data">ID:${sessionData.id}</div>
+        <movieDetailsH1>Title: ${sessionData.title}</div>
+        <div class="container-data">Description${sessionData.description}</div>
+        <div class="container-data">rating${sessionData.rating}</div>`;
+*/
 }
 main();

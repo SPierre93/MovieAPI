@@ -225,8 +225,8 @@ footer p                                            /* Footer paragraph content 
 #homePageContainer iframe                                   /* YouTube video styles */
 {
     width: 900px;
-    height: 95vh;
-    padding-top: 100px;
+    height: 93vh;
+    padding-top: 50px;
 }
 
 #promoGrid                                                  /* Promotions grid */
@@ -344,16 +344,31 @@ footer p                                            /* Footer paragraph content 
     color: var(--accent-color);
 }
 
+#nowShowingContainer, #comingSoonContainer
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: #eaeaea solid 1px;
+    column-gap: 10px;
+    row-gap: 10px;
+    margin-bottom: 15px;
+}
+
+#nowShowingContainer h3, #comingSoonContainer h3
+{
+    color: var(--accent-color);
+}
+
 
 /* MOVIE DETAILS PAGE */
 
 
 
-/* INFORMATION PAGE */
+/* TICKETS PAGE */
 
 
 
-/* PROMOTIONS PAGE */
+/* BOOK EVENTS PAGE */
 
 
 

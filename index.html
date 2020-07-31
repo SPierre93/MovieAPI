@@ -6,28 +6,47 @@
     <title> Spotlight Cinemas | Movie Theatre </title>
     <script src="https://kit.fontawesome.com/383decfa02.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;700&family=Luckiest+Guy&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+    <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <nav>
+    <div id="topNav"> 
+        <div>
+            <div id="hamburgerIcon">
+                <i class="fas fa-bars"></i>
+            </div>
+    
             <div>
                 <img src="img/Spotlight Cinemas Original.png" alt="Spotlight Cinemas logo">
             </div>
-            
-            <ul>
-                <li><a href="index.html" class="navigationLinks"> HOME </a></li>
-                <li><a href="#" class="navigationLinks"> RELEASES </a></li>
-                <li><a href="#" class="navigationLinks"> TICKETS </a></li>
-                <li><a href="#" class="navigationLinks"> BOOK EVENTS </a></li>
-                <li><a href="#" class="navigationLinks"> CONTACT US </a></li>
-            </ul>
 
             <div>
-                <a href="https://www.facebook.com/spotlightcinemas" target="_BLANK" alt="Logo linking to Facebook page"><i class="fab fa-facebook-square"></i></a>
-                <a href="https://www.instagram.com/spotlightcinemas" target="_BLANK" alt="Logo linking to Instagram page"><i class="fab fa-instagram-square"></i></a>
-                <a href="https://www.twitter.com/spotlightcinemas" target="_BLANK" alt="Logo linking to Twitter page"><i class="fab fa-twitter-square"></i></a>
+                <i class="fas fa-ticket-alt"></i>
             </div>
+        </div>
+    </div>
+
+    <header>        
+        <nav id="sideNav">
+            <section>
+                <div>
+                    <img src="img/Spotlight Cinemas Original.png" alt="Spotlight Cinemas logo">
+                </div>
+                
+                <ul>
+                    <li><a href="index.html" class="navigationLinks"> HOME </a></li>
+                    <li><a href="#" class="navigationLinks"> RELEASES </a></li>
+                    <li><a href="#" class="navigationLinks"> TICKETS </a></li>
+                    <li><a href="#" class="navigationLinks"> BOOK EVENTS </a></li>
+                    <li><a href="#" class="navigationLinks"> CONTACT US </a></li>
+                </ul>
+    
+                <div>
+                    <a href="https://www.facebook.com/spotlightcinemas" target="_BLANK" alt="Logo linking to Facebook page"><i class="fab fa-facebook-square"></i></a>
+                    <a href="https://www.instagram.com/spotlightcinemas" target="_BLANK" alt="Logo linking to Instagram page"><i class="fab fa-instagram-square"></i></a>
+                    <a href="https://www.twitter.com/spotlightcinemas" target="_BLANK" alt="Logo linking to Twitter page"><i class="fab fa-twitter-square"></i></a>
+                </div>
+            </section>
         </nav>
     </header>
 
@@ -36,7 +55,7 @@
             <section>
                 <div>
                     <div>
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/G3B056JHVZ4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/G3B056JHVZ4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
 
                     <div>
@@ -60,7 +79,7 @@
                             <p> You may take your seats 20 minutes before the movie begins, but no earlier as preparations must be made during this time. </p> <br>
                             <p> Please leave promptly once the movie ends so that the theatre can be properly sanitized afterward. Patrons may view end credit scenes if applicable. </p>
                         </div>
-                        <img src="img/people-in-masks.png" alt="Three people wearing face masks">
+                        <img id="oddImage" src="img/people-in-masks.png" alt="Three people wearing face masks">
                         
                         <img src="img/rides-park.png" alt="Various amusement park rides">
                         <div>   
@@ -142,8 +161,9 @@
     <div id="releasesPageContainer">
         <main>            
             <section>
-                <div id="releaseCoverImage"></div>
-                <h1> Join us for <span class="headerHighlight">new releases</span> each month. </h1>
+                <div id="releaseCoverImage">
+                    <h1> Join us for <span class="headerHighlight">new releases</span> each month. </h1>
+                </div>
             </section>
             
             <section>
@@ -197,24 +217,29 @@
             </section>
         </main>
     </div>
-    <!--
-    <div id="movieDetailsPageContainer">
+    
+    <div id="movieDetailsModal">
         <main>
             <section>
-                <img src="#" alt="#">
-                <h1> Movie Title </h>
-                <p> Synopsis </p>
-                <p> Release date </p>
-                <p> Review </p>
+                <div id="transparentBackground">
+                    <img src="img/test-modal-poster.jpeg" alt="Test movie poster for modal">
+                    <div>
+                        <h1> Black Widow </h1>
+                        <h2> Synopsis </h2>
+                        <p> Nat finally gets her movie hooray! </p>
+                        <p> Release date: 22/11/20 </p>
+                        <p> Review: It's great as we all knew </p>
+                    </div>
+                    <i class="fas fa-window-close"></i>
+                </div>
             </section>
         </main>
     </div>
-    -->
+    
     <div id="ticketsPageContainer">
         <main>
             <section>
-                <h1> Tickets Page </h1>
-                <p> This is a test </p>
+                <img class="underConstruction animate__animated animate__fadeIn" src="img/Page Under Construction.png" alt="Message stating that the web page is under construction">
             </section>
         </main>
     </div>
@@ -222,8 +247,7 @@
     <div id="eventBookingsPageContainer">
         <main>
             <section>
-                <h1> Event Booking </h1>
-                <p> This is a test </p>
+                <img class="underConstruction animate__animated animate__fadeIn" src="img/Page Under Construction.png" alt="Message stating that the web page is under construction">
             </section>
         </main>
     </div>
@@ -231,8 +255,7 @@
     <div id="contactUsPageContainer">
         <main>
             <section>
-                <h1> Contact Us Page </h1>
-                <p> This is a test </p>
+                <img class="underConstruction animate__animated animate__fadeIn" src="img/Page Under Construction.png" alt="Message stating that the web page is under construction">
             </section>
         </main>
     </div>
@@ -258,7 +281,7 @@
             <div>
                 <i class="fas fa-hashtag"></i>
                 <h3> Follow Us </h3>
-                <div>
+                <div id="footerLogoGrid">
                     <a class="footerLogos" href="https://www.facebook.com/spotlightcinemas" target="_BLANK" alt="Logo linking to Facebook page"><i class="fab fa-facebook-square"></i></a>
                     <a class="footerLogos" href="https://www.instagram.com/spotlightcinemas" target="_BLANK" alt="Logo linking to Instagram page"><i class="fab fa-instagram-square"></i></a>
                     <a class="footerLogos" href="https://www.twitter.com/spotlightcinemas" target="_BLANK" alt="Logo linking to Twitter page"><i class="fab fa-twitter-square"></i></a>

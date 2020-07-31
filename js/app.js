@@ -7,6 +7,7 @@ const main=()=>
     const eventBooking = document.querySelector("#eventBookingsPageContainer");
     const contactPage = document.querySelector("#contactUsPageContainer");
     const navigationButtons = document.querySelectorAll(".navigationLinks");
+    const menuButton = document.querySelector("#hamburgerIcon");
     
 
     //Initial load screen
@@ -16,10 +17,18 @@ const main=()=>
     contactPage.style.display="none";
     navigationButtons[0].style.borderBottom="3px solid #ff0b76";
     
+
+    //Navigation hamburger menu
+  /*  menuButton.addEventListener("click,(event)=>{
+
+    })*/
+
     
     //Navigation Sidebar
     navigationButtons.forEach(function(button){
         button.addEventListener("click",(event)=>{
+            event.preventDefault();
+            
             if(button == navigationButtons[0])              //Home button
             {               
                 homePage.style.display="block";
@@ -103,6 +112,8 @@ const main=()=>
 
         //NOW PLAYING SECTION  
         const nowShowingContainer = document.querySelector("#nowShowingContainer");
+        const movieModal = document.querySelector("#movieDetailsModal");
+        const movieModalCloseBtn = document.querySelector("#transparentBackground > i");
         const coreImageURL = "https://image.tmdb.org/t/p/w185_and_h278_bestv2";
         const nowPlayingEndpoint = `https://api.themoviedb.org/3/movie/now_playing?api_key=8ac083c820b140139e74b4bb0bceb932&language=en-US&page=1`;
         fetch(nowPlayingEndpoint) 
@@ -113,10 +124,10 @@ const main=()=>
             .then(function(data){
                 let nowShowingWrapper="";
                 
-                for(let i=0; i<=8; i++)
+                for(let i=0; i<=11; i++)
                 {
                    nowShowingWrapper+=
-                   `<div id="nowShowingContainer">
+                   `<div>
                         <div class="moviePoster">
                             <img src="${coreImageURL}${data.results[i].poster_path}" alt="Promo poster for ${data.results[i].title}">
                         </div> 
@@ -126,20 +137,34 @@ const main=()=>
                         </div>
 
                         <div class="movieSynopsis">
-                            <p> Synopsis: ${data.results[i].overview} </p>
+                            <p> <span class="boldHighlight">Synopsis:</span> ${data.results[i].overview.slice(0,100)}... </p>
                         </div>
 
                         <div class="movieReleaseDate">
-                            <p> Release date: ${data.results[i].release_date} </p>
+                            <p> <span class="boldHighlight">Release date:</span> ${data.results[i].release_date} </p>
                         </div>
 
                         <div class="movieRating">
-                            <p> Rating: ${data.results[i].vote_average} </p> 
+                            <p> <span class="boldHighlight">Rating:</span> ${data.results[i].vote_average} </p> 
                         </div>
                     </div>`;
                 }      
                 
                 nowShowingContainer.innerHTML = nowShowingWrapper;
+
+                //Event delegation (and event bubbling by default)
+                nowShowingContainer.addEventListener("click",(event)=>{
+                    console.log(event.target.tagName);
+                    
+                    if(event.target.tagName == `IMG`)
+                    {
+                        movieModal.style.display="block";
+                        
+                        movieModalCloseBtn.addEventListener("click",(event)=>{
+                            movieModal.style.display="none";
+                        })
+                    }
+                })
             })
 
             .catch(function(err){
@@ -162,10 +187,10 @@ const main=()=>
             .then(function(answer){
                 let comingSoonWrapper="";
                 
-                for(let i=0; i<=8; i++)
+                for(let i=0; i<=7; i++)
                 {
                     comingSoonWrapper+=
-                   `<div id="comingSoonContainer">
+                   `<div>
                         <div class="moviePoster">
                             <img src="${coreImageURL}${answer.results[i].poster_path}" alt="Promo poster for ${answer.results[i].title}">
                         </div> 
@@ -175,15 +200,15 @@ const main=()=>
                         </div>
 
                         <div class="movieSynopsis">
-                            <p> Synopsis: ${answer.results[i].overview} </p>
+                            <p> <span class="boldHighlight">Synopsis:</span> ${answer.results[i].overview.slice(0,100)}... </p>
                         </div>
 
                         <div class="movieReleaseDate">
-                            <p> Release date: ${answer.results[i].release_date} </p>
+                            <p> <span class="boldHighlight">Release date:</span> ${answer.results[i].release_date} </p>
                         </div>
 
                         <div class="movieRating">
-                            <p> Rating: ${answer.results[i].vote_average} </p> 
+                            <p> <span class="boldHighlight">Rating:</span> ${answer.results[i].vote_average} </p> 
                         </div>
                     </div>`;
                 }      
@@ -205,14 +230,5 @@ const main=()=>
     //Movie details Page
     
 
-    const movieDetailsDiv = document.createElement("div");
-    movieDetailsDiv.setAttribute("class","movieDetailsPageContainer");
-/*
-    movieDetailsDiv.innerHTML=
-        `<movieDetailsH1 class="container-data">ID:${sessionData.id}</div>
-        <movieDetailsH1>Title: ${sessionData.title}</div>
-        <div class="container-data">Description${sessionData.description}</div>
-        <div class="container-data">rating${sessionData.rating}</div>`;
-*/
 }
 main();

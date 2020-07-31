@@ -9,6 +9,7 @@
 {
     --background-color: #fff;
     --accent-color: #ff0b76;
+    --header-highlight-color: #ffef63;
 }
 
 body
@@ -16,8 +17,8 @@ body
     font-family: 'Comfortaa', cursive;
     font-family: 'Englebert', sans-serif;
     display: grid;
-    grid-template-columns: 1fr 6fr;
-    max-width: 1200px;
+    grid-template-columns: 240px 1fr;
+    max-width: 1500px;
     margin: 0 auto;
     background-color: var(--background-color);
 }
@@ -25,7 +26,6 @@ body
 body > div, footer
 {
     grid-column-start: 2;
-    grid-row-start: 1;
 }
 
 h1, h2, h3, h4
@@ -40,20 +40,85 @@ p
 
 .headerHighlight
 {
-    color: #ffef63;
+    color: var(--header-highlight-color);
+}
+
+.boldHighlight
+{
+    font-weight: 700;
 }
 
 
-/* NAVIGATON BAR */
-nav                                                  /* Navigation section */
+/* UNDER CONSTRUCTION PAGES */
+.underConstruction
 {
+    margin-bottom: 300px;
+    width: 100%;
+    object-fit: cover;
+    justify-self: center;
+}
+
+
+/* TOP NAVIGATION BAR*/
+#topNav
+{
+    display: none;
+    max-width: 1500px;
+    height: 200px;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+}
+
+#topNav > div
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    height: 150px;
+    z-index: 100;
+}
+
+#topNav > div > div:nth-child(2)                            /* logo section */
+{
+    justify-self: center;
+    align-self: center;
+}
+
+#topNav > div > div > img                                   /* logo */
+{
+    height: 150px;
+    margin-right: 50px;
+}
+
+#topNav > div > div:last-child                              /* ticket icon */
+{
+    justify-self: end;
+    align-self: start;
+    margin: 20% 20% 0 0;
+    font-size: 2.5rem;
+    color: var(--accent-color);
+}
+
+
+/* SIDE NAVIGATION BAR*/
+#sideNav > section
+{
+    display: grid;
+    grid-template-rows: auto auto 100px;
+    height: 100%;
+}
+
+#sideNav                                                  /* Navigation section */
+{
+    background-color:var(--background-color);
+    height:100%;
+    width: auto;
+    height:100vh;
     position: sticky;
     top: 0;
-    background-color: var(--background-color);
-    height: 100vh;
 }
 
-nav a                                                /* all Navigation links */
+#sideNav a                                                /* all Navigation links */
 {
     text-decoration: none;
     color: #000;
@@ -61,17 +126,27 @@ nav a                                                /* all Navigation links */
     display: inline-block;
 }
 
-nav > div > img, nav                                  /* logo image and full Navigation section */
+#sideNav > section > div > img                                /* logo */
 {
-    width: 240px;;
+    width: 240px;
+    height:216px;
+    object-fit: cover;
+    justify-self: center;
 }
 
-nav > ul                                              /* Navigation links section */
+#hamburgerIcon                                                          /* hamburger menu section */
 {
-    margin-bottom: 50px;
+    display: none;    
 }
 
-nav > ul > li                                         /* Navigation list */
+#hamburgerIcon > i                                                      /* hamburger menu */
+{
+    font-size: 2.3rem;
+    margin: 20% 0 0 20%;
+    color: var(--accent-color);
+}
+
+#sideNav > section > ul > li                                            /* Navigation list */
 {
     font-family: 'Comfortaa', cursive;
     list-style: none;
@@ -80,12 +155,12 @@ nav > ul > li                                         /* Navigation list */
     font-size: 2.5rem;
 }
 
-nav > ul > li > a                                       /* Navigation links */
+#sideNav > section > ul > li > a                                       /* Navigation links */
 {
     padding: 4px;
 }  
 
-nav > ul > li > a:hover                                 /* Navigation links hover styles */
+#sideNav > section > ul > li > a:hover                                 /* Navigation links hover styles */
 {
     border: 1px solid var(--accent-color);
     border-radius: 5px;
@@ -93,7 +168,7 @@ nav > ul > li > a:hover                                 /* Navigation links hove
     color: #fff;
 }
 
-nav > div:nth-child(3)                                   /* social media section */
+#sideNav > section > div:nth-child(3)                                   /* social media section */
 {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -101,14 +176,14 @@ nav > div:nth-child(3)                                   /* social media section
     justify-items: center;
 }
 
-nav > div > a                                           /* social media icons */
+#sideNav > section > div > a                                           /* social media icons */
 {
     font-size: 2.3rem;
     padding-right: 5px;
     color: var(--accent-color);
 }
 
-nav > div > a:hover                                      /* social media icons hove styles */
+#sideNav > section > div > a:hover                                      /* social media icons hover styles */
 {
     color: #838383;
 }
@@ -123,6 +198,11 @@ footer                                               /* Footer section */
     background-color: var(--background-color);
     color: #000;
     border-top: 1px solid #eaeaea;
+}
+
+#footerLogoGrid > a:nth-child(2)
+{
+    padding: 0 10px;
 }
 
 footer > section:first-child                         /* top section in Footer */
@@ -141,7 +221,6 @@ footer > section > div > i                           /* subsection icons */
 .footerLogos                                         /* icons for social media links/logos */
 {
     font-size: 1.7rem;
-    padding-right: 10px;
     color: #999999;
 }
 
@@ -163,7 +242,8 @@ footer p                                            /* Footer paragraph content 
 #affiliateNote                                      /* Affiliate note */
 {
     font-size: 0.8rem;
-    color: #fff;
+    font-weight: 600;
+    color: #000;
     margin: 20px;
     text-align: center;
 }
@@ -173,6 +253,13 @@ footer p                                            /* Footer paragraph content 
 #homePageContainer > main                                   /* Main sectinon of Home page */
 {
     padding: 0 50px 90px 50px;
+}
+
+#homePageContainer iframe                                   /* YouTube video styles */
+{
+    width: 100%;
+    height: 93vh;
+    padding-top: 50px;
 }
 
 #homePageContainer > main > section:last-child              /* last section of Home page */
@@ -213,22 +300,22 @@ footer p                                            /* Footer paragraph content 
 #infoSectGrid p                                             /* all paragraphs in the Information grid */
 {
     padding: 0 30px;
+    font-size: 1.1rem;
+}
+
+#homePageContainer p
+{
+    font-size: 1.2rem;
 }
 
 #infoSectGrid > img                                         /* all images in information grid */
 {
-    width: 400px;
+    width: 500px;
     border-radius: 20px;
 }
 
-/* HOME PROMOTIONS */
-#homePageContainer iframe                                   /* YouTube video styles */
-{
-    width: 900px;
-    height: 93vh;
-    padding-top: 50px;
-}
 
+/* HOME PROMOTIONS */
 #promoGrid                                                  /* Promotions grid */
 {
     display: grid;
@@ -243,6 +330,16 @@ footer p                                            /* Footer paragraph content 
     border: 1px solid #fff;
     border-radius: 10px;
     padding: 25px;
+}
+
+#promoGrid h3
+{
+    font-size: 1.4rem;
+}
+
+#promoGrid h4
+{
+    font-size: 5rem;
 }
 
 #homePageContainer h3                                           /* Promo types */
@@ -283,58 +380,46 @@ footer p                                            /* Footer paragraph content 
 
 
 /* RELEASES PAGE */
-#releaseCoverImage
+#releaseCoverImage                                                  /* Hero image */
 {
-    position: absolute;
     background-image: url("../img/ReleasesPageHero.png");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
     height: 100vh;
-    width: 60%;
+    width: 100%;
     z-index: 1;
 }
 
-#releasesPageContainer > main
+#releasesPageContainer h1                                           /* text on hero image */
+{
+    z-index: 2;
+    font-size: 5rem;
+    color: #fff;
+    padding: 40px 10px 0 60px;
+    text-align: start;
+    width: 350px;
+    text-shadow: 3px 3px #000;
+}
+
+#releasesPageContainer > main                                       /* Main page */
 {
     padding: 0 50px 90px 50px;
     background-color: var(--background-color);
 }
 
-#releasesPageContainer section
+#releasesPageContainer section:first-child                          /*  first section */
 {
-    padding-bottom: 100px;
-}
-
-#releasesPageContainer section:first-child
-{
-    width: 600px;
+    width: 100%;
     height: 100vh;
 }
 
-#releasesPageContainer section:nth-child(2)
+#releasesPageContainer section:nth-child(2)                         /* Now Showing section */
 {
     padding-top: 50px;
 }
 
-#releasesPageContainer h1                                               /* text on hero image */
-{
-    position: relative;
-    z-index: 2;
-    font-size: 5rem;
-    color: #fff;
-    padding: 40px 100px 0 60px;
-    text-align: start;
-    width: 100%;
-    text-shadow: 3px 3px #000;
-}
-
-#releasesPageContainer section:last-child                               /* final section on page */
-{
-    margin-bottom: 300px;
-}
-
-#releasesPageContainer h2                                                /* all main headings on Release Pg */
+#releasesPageContainer h2                                           /* all main headings on Release Pg */
 {
     font-weight: 400;
     font-size: 2.5rem;
@@ -344,24 +429,120 @@ footer p                                            /* Footer paragraph content 
     color: var(--accent-color);
 }
 
-#nowShowingContainer, #comingSoonContainer
+#nowShowingContainer h3, #comingSoonContainer h3                    /* movie titles */
+{
+    color: var(--accent-color);
+    text-align: center;
+}
+
+#nowShowingContainer > div > div, #comingSoonContainer > div > div  /* grid content spacing */
+{
+    padding-bottom: 10px;
+}
+
+.moviePoster > img                                                  /* movie poster images */
+{
+    width: 100%;
+    height: auto;
+}
+
+.moviePoster > img:hover                                            /* posters' hover settings */
+{
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+#nowShowingContainer, #comingSoonContainer                         /* Now Showing and Coming Soon sections */
 {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    border: #eaeaea solid 1px;
-    column-gap: 10px;
-    row-gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 30px;
+    row-gap: 30px;
     margin-bottom: 15px;
 }
 
-#nowShowingContainer h3, #comingSoonContainer h3
+#nowShowingContainer > div, #comingSoonContainer > div              /* individual movie sections*/
 {
-    color: var(--accent-color);
+    background-color: #f8f8f8;
+}
+
+.movieSynopsis, .movieReleaseDate, .movieRating                     /* grid text except title */
+{
+    padding: 5%;
 }
 
 
-/* MOVIE DETAILS PAGE */
+/* MOVIE DETAILS MODAL */
+#movieDetailsModal
+{
+    justify-self: center;
+    position: fixed;
+    margin: 70px 300px;
+    display: none;
+}
 
+#tester
+{
+    background-color: crimson;
+    width: 100%;
+    height: 100%;
+}
+
+#movieDetailsModal > main > section > div
+{
+    background-color: #eaeaea;
+    width: 1000px;
+    height: 600px;
+    z-index: 200;
+    color: #000;
+    display: grid;
+    grid-template-columns: 1fr 2fr 60px;
+    column-gap: 30px;
+}
+
+#movieDetailsModal > main > section > div > img
+{
+    height: 500px;
+    align-self: center;
+    margin-left: 35px;
+}
+
+#movieDetailsModal > main > section > div > div
+{
+    padding-top: 50px;
+}
+
+#movieDetailsModal > main > section > div > div > h1
+{
+    font-size: 1.9rem;
+    padding-bottom: 15px;
+}
+
+#movieDetailsModal > main > section > div > div > h2
+{
+    font-size: 1.2rem;
+    padding-bottom: 5px;
+}
+
+#movieDetailsModal > main > section > div > div > p
+{
+    font-size: 0.9rem;
+}
+
+#transparentBackground
+{
+    height: 1100px;
+    width: 1000px;
+    background-color: blue;
+}
+
+#transparentBackground > i
+{
+    justify-self: end;
+    font-size: 2rem;
+    margin: 20px 20px 0 0;
+    cursor: pointer;
+}
 
 
 /* TICKETS PAGE */
@@ -376,4 +557,734 @@ footer p                                            /* Footer paragraph content 
 
 
 
-/* MEDIA QUERIES */
+/* MEDIA QUERIES - Note: Default design is for extra large devices (large desktops, 1200px and up) */
+
+
+/* height specs */
+
+  
+
+@media (max-width: 575.98px)                                /* Extra small devices (portrait phones, less than 576px) */
+{
+    /* NAVIGATION MQ */
+    #topNav, #hamburgerIcon 
+    {
+        display: block;
+    }
+
+    #sideNav
+    {
+        display: none;
+    }
+
+    body 
+    {
+        grid-template-columns: 1fr;
+    }
+
+    header 
+    {
+        height: 600px;
+        max-width: 1500px;
+        margin-bottom: 30px;
+    }
+
+    #topNav
+    {
+        height: auto;
+    }
+
+    #hamburgerIcon                                     
+    {
+        height: 100%;
+    }
+
+    #topNav > div
+    {
+        height: 140px;
+    }
+
+    #topNav > div > div > img                                   /* logo */
+    {
+        height: 140px;
+        margin-right: 0;
+    }
+
+
+    /* HOME MQ */
+    #homePageContainer > main > section > div > div:nth-child(2), #homePageContainer > main > section > div > div:last-child
+    {
+        margin-top: 30px;
+    }
+
+    #homePageContainer > main > section:last-child
+    {
+        margin-bottom: 50px;
+    }
+
+    #infoSectGrid
+    {
+        padding: 30px 0;
+        grid-template-columns: 1fr;
+        row-gap: 50px;
+    }
+
+    #infoSectGrid > img 
+    {
+        width: 100%;
+        justify-self: center;
+    }
+
+    #oddImage
+    {
+        grid-row-start: 3;
+    }
+
+    #homePageContainer p 
+    {
+        font-size: 1.1rem;
+    }
+
+    #infoSectGrid > div:nth-child(2), #infoSectGrid > div:nth-child(3)
+    {
+        border-bottom: 1px solid #d6d3d3;
+        padding-bottom: 20px;
+    }
+
+    #promoGrid
+    {
+        grid-template-columns: 1fr;
+    }
+
+    #homePageContainer h3
+    {
+        font-size: 2rem;
+    }
+
+    #homePageContainer h4
+    {
+        font-size: 3rem;
+    }
+
+    .classicHighlight, .deluxHighlight, .premiumHighlight
+    {
+        width: 100%;
+        justify-self: center;
+    }
+
+    
+    /* RELEASES MQ */
+    #nowShowingContainer, #comingSoonContainer                  
+    {  
+        grid-template-columns: 1fr;
+    }
+
+    #releaseCoverImage                                                  
+    {
+        width: 100vw;
+    }
+
+    #releasesPageContainer h1                                          
+    {
+        font-size: 4rem;
+        padding: 40px 100px 0 60px;
+        width: 70%;
+    }
+
+    #homePageContainer iframe
+    {
+        padding-top: 0;
+    }
+
+    /* FOOTER MQ */
+    footer                                               /* Footer section */
+    {        
+        padding: 50px 50px 20px 50px;
+        height: 0;
+    }
+
+    #comingSoonContainer
+    {
+        margin-bottom: 100px;
+    }
+
+    footer > section > div > i                           /* subsection icons */
+    {
+        padding-bottom: 15px;
+        font-size: 2rem;
+    }
+
+    .footerLogos                                         /* icons for social media links/logos */
+    {
+        font-size: 2.7rem;
+    }
+
+    footer > section > div:nth-child(2)
+    {
+        border-bottom: 1.5px #c4c4c4 solid;
+        border-top: 1.5px #c4c4c4 solid;
+        padding: 25px 0;
+        margin: 0 20px;
+    }
+
+    footer > section:first-child
+    {
+        grid-template-columns: 1fr;
+        row-gap: 50px;
+    }
+
+    #footerLogoGrid > a:nth-child(2)
+    {
+        padding: 0 20px;
+    }
+
+    footer h3                                           /* Footer headings */
+    {
+        padding-bottom: 20px;
+        font-size: 2rem;
+    }
+
+    footer p, #affiliateNote                                            /* Footer paragraph content */
+    {
+        font-size: 1.1rem;
+    }
+
+    #affiliateNote                                      /* Affiliate note */
+    {
+        margin-bottom: 20px;
+    }
+}
+
+ 
+@media (min-width: 576px) and (max-width: 768.98px)         /* Small devices (landscape phones, 576px and up) */
+{
+    /* NAVIGATION MQ */
+    #topNav, #hamburgerIcon 
+    {
+        display: block;
+    }
+
+    #sideNav
+    {
+        display: none;
+    }
+
+    body 
+    {
+        grid-template-columns: 1fr;
+    }
+
+    header 
+    {
+        height: 600px;
+        max-width: 1500px;
+        margin-bottom: 30px;
+    }
+
+    #hamburgerIcon                                     
+    {
+        height: 100%;
+    }
+
+    #hamburgerIcon > i
+    {
+        margin: 25% 0 0 25%;
+    }
+
+    #topNav > div > div > img
+    {
+        margin-right: 0;
+    }
+
+    #topNav > div > div:last-child
+    {
+        margin: 25% 30% 20% 0;
+    }
+
+    #topNav > div
+    {
+        height: 180px;
+    }
+
+    #topNav > div > div > img                                   /* logo */
+    {
+        height: 180px;
+    }
+
+
+    /* HOME MQ */
+    body 
+    {
+        grid-template-columns: 1fr;
+    }
+
+    header 
+    {
+        height: 600px;
+        max-width: 1500px;
+        margin-bottom: 30px;
+    }
+
+    #topNav > div
+    {
+        height: 180px;
+    }
+
+    #topNav > div > div > img
+    {
+        margin-right: 0;
+        height: 180px;
+    }
+
+    #hamburgerIcon                                     
+    {
+        height: 100%;
+    }
+
+    #hamburgerIcon > i
+    {
+        margin: 27% 0 20% 25%; 
+        font-size: 3rem;
+    }
+
+    #topNav > div > div:last-child
+    {
+        margin: 25% 30% 0 0;
+        font-size: 3rem;
+    }
+
+    #releasesPageContainer
+    {
+        margin: 0 35px;
+    }
+
+    #homePageContainer > main
+    {
+        padding: 0 50px 0 50px;
+    }
+
+    #homePageContainer > main > section:first-child > div > div:first-child
+    {
+        margin-top: 140px;
+    }
+
+    #homePageContainer > main > section > div > div:nth-child(2), #homePageContainer > main > section > div > div:last-child
+    {
+        margin-top: 30px;
+    }
+
+    #homePageContainer > main > section:last-child
+    {
+        margin-bottom: 0;
+    }
+
+    #homePageContainer iframe
+    {
+        height: 50vh;
+    }
+
+    #infoSectGrid
+    {
+        padding: 30px 0;
+        grid-template-columns: 1fr;
+        row-gap: 50px;
+    }
+
+    #infoSectGrid > img 
+    {
+        width: 100%;
+        justify-self: center;
+    }
+
+    #oddImage
+    {
+        grid-row-start: 3;
+    }
+
+    #homePageContainer p 
+    {
+        font-size: 1.1rem;
+    }
+
+    #infoSectGrid > div:nth-child(2), #infoSectGrid > div:nth-child(3)
+    {
+        border-bottom: 1px solid #d6d3d3;
+        padding-bottom: 20px;
+    }
+
+    #promoGrid
+    {
+        grid-template-columns: 1fr;
+    }
+
+    #homePageContainer h3
+    {
+        font-size: 1.5rem;
+    }
+
+    #homePageContainer h4
+    {
+        font-size: 3rem;
+    }
+
+    .classicHighlight, .deluxHighlight, .premiumHighlight
+    {
+        width: 80%;
+        justify-self: center;
+    }
+
+    
+    /* RELEASES MQ */
+    #nowShowingContainer, #comingSoonContainer                  
+    {  
+        grid-template-columns: 1fr;
+        row-gap: 40px;
+    }
+
+    #releaseCoverImage                                                  
+    {
+        width: 100vw;
+    }
+
+    #releasesPageContainer h1                                          
+    {
+        font-size: 4rem;
+        padding: 40px 100px 0 60px;
+        width: 70%;
+    }
+
+    #releasesPageContainer h2
+    {
+        font-size: 3rem;
+        padding-top: 35px;
+    }
+
+    #releasesPageContainer h3
+    {
+        font-size: 2.3rem;
+        padding-top: 20px;
+    }
+
+    #releasesPageContainer p
+    {
+        font-size: 1.6rem;
+        padding: 0 15px 15px 15px;
+    }
+
+    
+    /* FOOTER MQ */
+    footer                                               /* Footer section */
+    {        
+        padding: 50px 50px 20px 50px;
+    }
+
+    #comingSoonContainer
+    {
+        margin-bottom: 100px;
+    }
+
+    footer > section > div > i                           /* subsection icons */
+    {
+        padding-bottom: 15px;
+        font-size: 2rem;
+    }
+
+    .footerLogos                                         /* icons for social media links/logos */
+    {
+        font-size: 2.7rem;
+    }
+
+    footer > section > div:nth-child(2)
+    {
+        border-bottom: 1.5px #c4c4c4 solid;
+        border-top: 1.5px #c4c4c4 solid;
+        padding: 25px 0;
+        margin: 0 100px;
+    }
+
+    footer > section:first-child
+    {
+        grid-template-columns: 1fr;
+        row-gap: 50px;
+    }
+
+    #footerLogoGrid > a:nth-child(2)
+    {
+        padding: 0 20px;
+    }
+
+    footer h3                                           /* Footer headings */
+    {
+        padding-bottom: 20px;
+        font-size: 2rem;
+    }
+
+    footer p, #affiliateNote                                            /* Footer paragraph content */
+    {
+        font-size: 1.1rem;
+    }
+
+    #affiliateNote                                      /* Affiliate note */
+    {
+        margin-bottom: 20px;
+    }
+}
+
+
+@media (min-width: 768px) and (max-width: 991.98px)         /* Medium devices (tablets, 768px and up) */
+{
+    /* NAVIGATION MQ */
+    body > div:nth-child(3) 
+    {
+        grid-row-start: 2;
+    }
+
+    
+    #topNav, #hamburgerIcon 
+    {
+        display: block;
+    }
+
+    #sideNav
+    {
+        display: none;
+    }
+
+    body 
+    {
+        grid-template-columns: 1fr;
+    }
+
+    header 
+    {
+        height: 600px;
+        max-width: 1500px;
+        margin-bottom: 30px;
+    }
+
+    #topNav > div
+    {
+        height: 180px;
+    }
+
+    #topNav > div > div > img
+    {
+        margin-right: 0;
+        height: 180px;
+    }
+
+    #hamburgerIcon                                     
+    {
+        height: 100%;
+    }
+
+    #hamburgerIcon > i
+    {
+        font-size: 2.5rem;
+    }
+
+    #topNav > div > div:last-child
+    {
+        font-size: 2.5rem;
+    }
+
+
+    /* HOME MQ */
+    #homePageContainer > main
+    {
+        padding: 0 70px 90px 70px;
+    }
+
+    #homePageContainer > main > section:first-child > div > div:first-child
+    {
+        margin-top: 0;
+    }
+
+    #homePageContainer > main > section > div > div:nth-child(2), #homePageContainer > main > section > div > div:last-child
+    {
+        margin-top: 30px;
+    }
+
+    #homePageContainer iframe
+    {
+        margin-top: 0;
+        height: 80vh;
+    }
+
+    #infoSectGrid
+    {
+        padding: 30px 0;
+        grid-template-columns: 1fr;
+        row-gap: 50px;
+    }
+
+    #infoSectGrid > img 
+    {
+        width: 75%;
+        justify-self: center;
+    }
+
+    #oddImage
+    {
+        grid-row-start: 3;
+    }
+
+    #homePageContainer p 
+    {
+        font-size: 1.1rem;
+    }
+
+    #infoSectGrid > div:nth-child(2), #infoSectGrid > div:nth-child(3)
+    {
+        border-bottom: 1px solid #d6d3d3;
+        padding-bottom: 20px;
+    }
+
+    #promoGrid
+    {
+        grid-template-columns: 1fr;
+    }
+
+    #promoGrid > div:last-child
+    {
+        margin-bottom: 50px;
+    }
+
+    #homePageContainer h3
+    {
+        font-size: 2rem;
+    }
+
+    #homePageContainer h4
+    {
+        font-size: 3rem;
+    }
+
+    .classicHighlight, .deluxHighlight, .premiumHighlight
+    {
+        width: 50%;
+        justify-self: center;
+    }
+
+    
+    /* RELEASES MQ */
+    #nowShowingContainer, #comingSoonContainer                  
+    {  
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #releaseCoverImage                                                  
+    {
+        width: 100vw;
+        background-image: url("../img/ExtraSmallReleasesHero.png");
+    }
+  
+    #releasesPageContainer h1                                          
+    {
+        font-size: 4rem;
+        padding: 40px 100px 0 60px;
+        width: 70%;
+    }
+
+    #homePageContainer iframe
+    {
+        padding-top: 0;
+    }
+
+    
+    /* FOOTER MQ */
+    footer                                               /* Footer section */
+    {        
+        padding: 50px 50px 20px 50px;
+        height: 0;
+    }
+
+    footer > section > div:nth-child(2)
+    {
+        padding: 25px 0;
+    }
+
+    footer > section > div > i                           /* subsection icons */
+    {
+        padding-bottom: 15px;
+        font-size: 1.5rem;
+    }
+
+    .footerLogos                                         /* icons for social media links/logos */
+    {
+        font-size: 2.5rem;
+    }
+
+    #footerLogoGrid > a:nth-child(2)
+    {
+        padding: 0 20px;
+    }
+
+    footer h3                                           /* Footer headings */
+    {
+        padding-bottom: 20px;
+        font-size: 1.2rem;
+    }
+
+    footer p                                            /* Footer paragraph content */
+    {
+        font-size: 0.8rem;
+    }
+
+    #affiliateNote                                      /* Affiliate note */
+    {
+        font-size: 0.9rem;
+        margin-bottom: 20px;
+    }
+}
+
+
+@media (min-width: 992px) and (max-width: 1199.98px)        /* Large devices (desktops, 992px and up) */
+{
+    /* NAVIGATION MQ */
+    #sideNav
+    {
+        margin-left: 20px;
+    }
+
+    #sideNav > section > div > img
+    {
+        padding-top: 50px;
+    }
+
+    
+    /* RELEASES MQ */ 
+    #releaseCoverImage                                                  /* Hero image */
+    {
+        background-image: url("../img/SmallReleasesHero.png");
+    }
+    
+    #releasesPageContainer h1
+    {
+        font-size: 4rem;
+        padding: 70px 100px 0 60px;
+        width: 90%;
+    }
+
+    #nowShowingContainer, #comingSoonContainer                  
+    {  
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+
+    /* FOOTER MQ */
+    footer > section > div > i
+    {
+        font-size: 2rem;
+    }
+
+    footer h3
+    {
+        font-size: 1.4rem;
+    }
+
+    footer p, #affiliateNote
+    {
+        font-size: 1.1rem;
+    }
+}

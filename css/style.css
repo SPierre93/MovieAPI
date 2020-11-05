@@ -8,6 +8,7 @@
 :root
 {
     --background-color: #fff;
+    --background-grid-color: #f8f8f8;
     --accent-color: #ff0b76;
     --header-highlight-color: #ffef63;
 }
@@ -18,6 +19,7 @@ body
     font-family: 'Englebert', sans-serif;
     display: grid;
     grid-template-columns: 240px 1fr;
+    grid-template-rows: 1fr;
     max-width: 1500px;
     margin: 0 auto;
     background-color: var(--background-color);
@@ -26,6 +28,7 @@ body
 body > div, footer
 {
     grid-column-start: 2;
+    width: 100%;
 }
 
 h1, h2, h3, h4
@@ -50,9 +53,13 @@ p
 
 
 /* UNDER CONSTRUCTION PAGES */
+.underConstructionSection
+{
+    margin: 50px 30px 0 0;
+}
+
 .underConstruction
 {
-    margin-bottom: 300px;
     width: 100%;
     object-fit: cover;
     justify-self: center;
@@ -64,10 +71,19 @@ p
 {
     display: none;
     max-width: 1500px;
-    height: 200px;
+    height: 170px;
     width: 100%;
     top: 0;
+    left: 0;
     z-index: 100;
+    background-color: #fff;
+}
+
+#hamburgerIcon > i                                                      /* hamburger menu */
+{
+    font-size: 2.3rem;
+    margin: 20% 0 0 0;
+    color: var(--accent-color);
 }
 
 #topNav > div
@@ -94,13 +110,37 @@ p
 {
     justify-self: end;
     align-self: start;
-    margin: 20% 20% 0 0;
+    margin: 20% 0 0 0;
     font-size: 2.5rem;
     color: var(--accent-color);
 }
 
 
 /* SIDE NAVIGATION BAR*/
+header
+{
+    grid-row: 1 /span 3;
+}
+
+#closeMenuButton
+{
+    display: none;
+    font-size: 2rem;
+    padding: 30px 10px 0 0;
+    color: var(--accent-color);
+}
+
+#sideNavHeader
+{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+#sideNavHeader > img
+{
+    grid-column: 2;
+}
+
 #sideNav > section
 {
     display: grid;
@@ -111,11 +151,10 @@ p
 #sideNav                                                  /* Navigation section */
 {
     background-color:var(--background-color);
-    height:100%;
-    width: auto;
-    height:100vh;
-    position: sticky;
+    height: 100vh;
+    position: fixed;
     top: 0;
+    left: 0;
 }
 
 #sideNav a                                                /* all Navigation links */
@@ -128,7 +167,7 @@ p
 
 #sideNav > section > div > img                                /* logo */
 {
-    width: 240px;
+    width: 220px;
     height:216px;
     object-fit: cover;
     justify-self: center;
@@ -137,13 +176,6 @@ p
 #hamburgerIcon                                                          /* hamburger menu section */
 {
     display: none;    
-}
-
-#hamburgerIcon > i                                                      /* hamburger menu */
-{
-    font-size: 2.3rem;
-    margin: 20% 0 0 20%;
-    color: var(--accent-color);
 }
 
 #sideNav > section > ul > li                                            /* Navigation list */
@@ -172,8 +204,9 @@ p
 {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    margin: 20px 40px 0 40px;
+    margin: 0px 30px 40px 30px;
     justify-items: center;
+    align-self: center;
 }
 
 #sideNav > section > div > a                                           /* social media icons */
@@ -198,6 +231,7 @@ footer                                               /* Footer section */
     background-color: var(--background-color);
     color: #000;
     border-top: 1px solid #eaeaea;
+    width: 100%;
 }
 
 #footerLogoGrid > a:nth-child(2)
@@ -250,21 +284,16 @@ footer p                                            /* Footer paragraph content 
 
 
 /* HOME PAGE*/
-#homePageContainer > main                                   /* Main sectinon of Home page */
+#homePageContainer > main 
 {
-    padding: 0 50px 90px 50px;
+    padding: 0 30px 25px 30px;
 }
 
-#homePageContainer iframe                                   /* YouTube video styles */
+#homePageContainer > main > section > div > div > iframe                                   /* YouTube video styles */
 {
     width: 100%;
     height: 93vh;
     padding-top: 50px;
-}
-
-#homePageContainer > main > section:last-child              /* last section of Home page */
-{
-    margin-bottom: 300px;
 }
 
 #homePageContainer h2                                       /* All secondary subheadings*/
@@ -281,7 +310,7 @@ footer p                                            /* Footer paragraph content 
 {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    row-gap: 100px;
+    row-gap: 80px;
     padding: 100px 0;
 }
 
@@ -289,7 +318,7 @@ footer p                                            /* Footer paragraph content 
 {
     font-size: 1.6rem;
     margin-bottom: 10px;
-    padding-left: 30px;
+    padding: 0 0 0 30px;
 }
 
 #infoSectGrid > div > p:last-child                          /* every last paragraph in the Information grid */
@@ -299,19 +328,20 @@ footer p                                            /* Footer paragraph content 
 
 #infoSectGrid p                                             /* all paragraphs in the Information grid */
 {
-    padding: 0 30px;
     font-size: 1.1rem;
+    padding: 0 30px;
 }
 
 #homePageContainer p
 {
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 #infoSectGrid > img                                         /* all images in information grid */
 {
-    width: 500px;
+    width: 430px;
     border-radius: 20px;
+    justify-self: center;
 }
 
 
@@ -319,9 +349,11 @@ footer p                                            /* Footer paragraph content 
 #promoGrid                                                  /* Promotions grid */
 {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 250px 250px 250px;
     column-gap: 25px;
     row-gap: 25px;
+    justify-self: center;
+    justify-content: center;
 }
 
 #promoGrid > div                                            /* each block in the Promo grid */
@@ -329,17 +361,17 @@ footer p                                            /* Footer paragraph content 
     text-align: center;
     border: 1px solid #fff;
     border-radius: 10px;
-    padding: 25px;
+    padding: 10px;
 }
 
 #promoGrid h3
 {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
 }
 
 #promoGrid h4
 {
-    font-size: 5rem;
+    font-size: 4rem;
 }
 
 #homePageContainer h3                                           /* Promo types */
@@ -356,7 +388,7 @@ footer p                                            /* Footer paragraph content 
 
 #promoGrid > div > p                                              /* paragraphs in Promo grid */
 {
-    padding: 10px 15px;
+    padding: 10px 0;
     line-height: 20px;
 }
 
@@ -404,8 +436,9 @@ footer p                                            /* Footer paragraph content 
 
 #releasesPageContainer > main                                       /* Main page */
 {
-    padding: 0 50px 90px 50px;
-    background-color: var(--background-color);
+    padding: 0 50px 50px 50px;
+    background-color: #fff;
+    width: 100%;
 }
 
 #releasesPageContainer section:first-child                          /*  first section */
@@ -475,10 +508,21 @@ footer p                                            /* Footer paragraph content 
 /* MOVIE DETAILS MODAL */
 #movieDetailsModal
 {
-    justify-self: center;
     position: fixed;
-    margin: 70px 300px;
+    left: 0;
+    top: 0;
     display: none;
+    background-color: #f8f8f8;
+}
+
+#movieDetailsModal h2
+{
+    font-size: 1.2rem;
+}
+
+#movieDetailsModal p
+{
+    font-size: 0.9rem;
 }
 
 #tester
@@ -488,34 +532,38 @@ footer p                                            /* Footer paragraph content 
     height: 100%;
 }
 
-#movieDetailsModal > main > section > div
+#movieModalContent
 {
-    background-color: #eaeaea;
-    width: 1000px;
+    background-color: var(--background-grid-color);
+    width: 900px;
     height: 600px;
     z-index: 200;
     color: #000;
     display: grid;
-    grid-template-columns: 1fr 2fr 60px;
+    grid-template-columns: 1fr 1fr 60px;
     column-gap: 30px;
+    position: absolute;
+    margin: auto;
+    overflow: auto;
+    top: 0; left: 0; bottom: 0; right: 0;
 }
 
 #movieDetailsModal > main > section > div > img
 {
-    height: 500px;
+    height: 85%;
     align-self: center;
-    margin-left: 35px;
+    justify-self: center;
 }
 
 #movieDetailsModal > main > section > div > div
 {
-    padding-top: 50px;
+    padding: 50px 0;
 }
 
 #movieDetailsModal > main > section > div > div > h1
 {
     font-size: 1.9rem;
-    padding-bottom: 15px;
+    padding-bottom: 30px;
 }
 
 #movieDetailsModal > main > section > div > div > h2
@@ -524,25 +572,162 @@ footer p                                            /* Footer paragraph content 
     padding-bottom: 5px;
 }
 
+#movieDetailsModal > main > section > div > div > h3, #movieDetailsModal > main > section > div > div > div > h3
+{
+    font-size: 0.9rem;
+    padding-bottom: 5px;
+}
+
+#movieModalContent > div > h2:nth-child(6)
+{
+    display: inline;
+    font-size: 1.3rem;
+}
+
+#movieDetailsModal > main > section > div > div > div > h3
+{
+    font-style: italic;
+}
+
 #movieDetailsModal > main > section > div > div > p
 {
     font-size: 0.9rem;
+    padding-bottom: 30px;
 }
 
-#transparentBackground
+#movieModalContent h1, #movieModalContent h2:not(#ratingScore), #movieModalContent h3
 {
-    height: 1100px;
-    width: 1000px;
-    background-color: blue;
+    color: var(--accent-color);
 }
 
-#transparentBackground > i
+#trailerGrid
+{
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
+
+#trailerGrid > a
+{
+    font-size: 1.5rem;
+    padding-left: 15px;
+    cursor: pointer;
+    color: #646464;
+}
+
+#movieModalContent > div > i        /* trailer icon */
+{
+    font-size: 1.5rem;
+    padding-bottom: 50px;
+}
+
+#movieModalContent > i          /* modal close button */
 {
     justify-self: end;
     font-size: 2rem;
     margin: 20px 20px 0 0;
     cursor: pointer;
+    color: #3c1d55;
 }
+
+#ReleasesGrid
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-bottom: 30px;
+}
+
+#ratingsGrid
+{
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    background-color:  #3c1d55;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 3px 3px 30px #8a7999;
+}
+
+#ratingsGrid > div
+{
+    grid-column-start: 2;
+}
+
+#ratingsGrid > div > h2
+{
+    font-size: 1.3rem;
+    margin: 5px 0 10px 0;
+}
+
+.box
+{
+    position: relative;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.percent
+{
+    margin-top: 20px;
+}
+
+.box .percent, .box .percent svg
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.box .percent svg circle
+{
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke-width: 10;
+    stroke: #000;
+    transform: translate(10px,5px);
+    stroke-dasharray: 250; /*190*/
+    stroke-dashoffset: 250; /*190*/
+    stroke-linecap: round;
+}
+
+.box .percent .number
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #999;
+}
+
+.box .percent svg circle:nth-child(1)
+{
+    stroke-dashoffset: 0;
+    stroke: #dfd0d9;
+}
+
+.box .percent svg circle:nth-child(2)
+{
+    stroke-dashoffset: calc(250 - (250*25) / 100);  /* stroke value and percent value */
+    stroke: var(--accent-color);  
+}
+
+.box .percent .number h2
+{
+    font-size: 20px;
+}
+
+.box .percent .number h2 span
+{
+    font-size: 15px;
+}
+
 
 
 /* TICKETS PAGE */
@@ -558,23 +743,86 @@ footer p                                            /* Footer paragraph content 
 
 
 /* MEDIA QUERIES - Note: Default design is for extra large devices (large desktops, 1200px and up) */
-
-
-/* height specs */
-
-  
-
 @media (max-width: 575.98px)                                /* Extra small devices (portrait phones, less than 576px) */
 {
+    /* GENERAL */
+    #releasesPageContainer h2
+    {
+        padding-top: 50px;
+    }
+
+    #nowShowingContainer h3, #comingSoonContainer h3
+    {
+        font-size: 2rem;
+    }
+
+    #nowShowingContainer p, #comingSoonContainer p 
+    {
+        font-size: 1.3rem;
+    }
+
+    body > div, footer
+    {
+        grid-column-start: 1;
+    }
+
+
+    /* Tidio chat*/
+    #tidio-chat-iframe
+    {
+        width: 70%;
+    }
+
+
     /* NAVIGATION MQ */
     #topNav, #hamburgerIcon 
     {
         display: block;
     }
 
+    #hamburgerIcon > i, #topNav > div > div:last-child
+    {
+        margin-top: 30px;
+    }
+
+    #topNav
+    {
+        height: 150px;
+    }
+
+    #topNav > div
+    {
+        padding: 0 30px;
+    }
+
     #sideNav
     {
         display: none;
+        width: 100%;
+        z-index: 100;
+    }
+
+    #sideNav > section > div > img
+    {
+        width: 150px;
+        height: auto;
+    }
+
+    #sideNav > section > ul > li
+    {
+        margin-bottom: 15px;
+        font-size: 2rem;
+    }
+
+    #sideNav > section > div:nth-child(3)
+    {
+        margin: 0px 40px 40px 40px;
+    }
+
+    #sideNavHeader
+    {
+        display: grid;
+        grid-template-columns: 50px 1fr 50px;
     }
 
     body 
@@ -582,26 +830,14 @@ footer p                                            /* Footer paragraph content 
         grid-template-columns: 1fr;
     }
 
-    header 
-    {
-        height: 600px;
-        max-width: 1500px;
-        margin-bottom: 30px;
-    }
-
-    #topNav
-    {
-        height: auto;
-    }
-
     #hamburgerIcon                                     
     {
         height: 100%;
     }
 
-    #topNav > div
+    #topNav > div 
     {
-        height: 140px;
+        height: 100%;
     }
 
     #topNav > div > div > img                                   /* logo */
@@ -612,11 +848,6 @@ footer p                                            /* Footer paragraph content 
 
 
     /* HOME MQ */
-    #homePageContainer > main > section > div > div:nth-child(2), #homePageContainer > main > section > div > div:last-child
-    {
-        margin-top: 30px;
-    }
-
     #homePageContainer > main > section:last-child
     {
         margin-bottom: 50px;
@@ -635,6 +866,15 @@ footer p                                            /* Footer paragraph content 
         justify-self: center;
     }
 
+    #infoSectGrid > div > h3
+    {
+        padding-left: 20px;
+    }
+
+    #infoSectGrid p
+    {
+        padding: 0 20px;
+    }
     #oddImage
     {
         grid-row-start: 3;
@@ -681,31 +921,123 @@ footer p                                            /* Footer paragraph content 
 
     #releaseCoverImage                                                  
     {
-        width: 100vw;
+        background-image: url("../img/ExtraSmallReleasesHero.png");
+        width: 100%;
+    }
+
+    #releasesPageContainer > main 
+    {
+        padding: 0 30px 30px 30px;
     }
 
     #releasesPageContainer h1                                          
     {
-        font-size: 4rem;
-        padding: 40px 100px 0 60px;
-        width: 70%;
+        font-size: 3rem;
+        padding: 40px 20px 0 20px;
+        width: 100%;
     }
 
-    #homePageContainer iframe
+    #homePageContainer > main > section > div > div > iframe
+    {
+        padding-top: 0;
+        height: 50vh;
+    }
+
+    #releasesPageContainer section:nth-child(2)
     {
         padding-top: 0;
     }
+
+    #movieDetailsModal
+    {
+        z-index: 200;
+    }
+
+    #movieModalContent
+    {
+        width: 300px;
+        height: 450px;
+        column-gap: 0;
+        grid-template-columns: 1fr;
+    }
+
+    #movieDetailsModal > main > section > div > img
+    {
+        height: 400px;
+        grid-column: 1;
+        justify-self: center;
+        padding: 15px 0 20px 0;
+    }
+
+    #movieDetailsModal > main > section > div > div
+    {
+        grid-column: 1;
+        padding: 0 30px;
+    }
+
+    #movieModalContent > i
+    {
+        grid-row: 1;
+        margin: 15px 30px 0 0;
+    }
+
+    #movieDetailsModal > main > section > div > div > h1
+    {
+        font-size: 2rem;
+        text-align: center;
+        padding-bottom: 30px;
+    }
+
+    #movieDetailsModal > main > section > div > div > h2, #movieDetailsModal h2
+    {
+        font-size: 1.5rem;
+        padding-bottom: 10px;
+    }
+
+    #movieDetailsModal > main > section > div > div > p, #movieDetailsModal p
+    {
+        font-size: 1.1rem;
+    }
+
+    #trailerGrid > a
+    {
+        font-size: 2.9rem;
+    }
+
+    #trailerGrid > h2
+    {
+        align-self: center;
+    }
+
+    #ReleasesGrid
+    {
+        grid-template-columns: 1fr;
+        row-gap: 30px;
+    }
+
+    #ratingsGrid
+    {
+        margin-bottom: 30px;
+    }
+
+    #ratingsGrid > div > h2
+    {
+        font-size: 1.3rem;
+    }
+
+
+    /* UNDER CONSTRUCTION */
+    .underConstructionSection
+    {
+        margin: 0 30px;
+    }
+
 
     /* FOOTER MQ */
     footer                                               /* Footer section */
     {        
         padding: 50px 50px 20px 50px;
         height: 0;
-    }
-
-    #comingSoonContainer
-    {
-        margin-bottom: 100px;
     }
 
     footer > section > div > i                           /* subsection icons */
@@ -716,7 +1048,7 @@ footer p                                            /* Footer paragraph content 
 
     .footerLogos                                         /* icons for social media links/logos */
     {
-        font-size: 2.7rem;
+        font-size: 2.5rem;
     }
 
     footer > section > div:nth-child(2)
@@ -740,13 +1072,12 @@ footer p                                            /* Footer paragraph content 
 
     footer h3                                           /* Footer headings */
     {
-        padding-bottom: 20px;
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
 
-    footer p, #affiliateNote                                            /* Footer paragraph content */
+    footer p, #affiliateNote                                            /* Footer paragraph content */ 
     {
-        font-size: 1.1rem;
+        font-size: 0.9rem;
     }
 
     #affiliateNote                                      /* Affiliate note */
@@ -756,8 +1087,25 @@ footer p                                            /* Footer paragraph content 
 }
 
  
-@media (min-width: 576px) and (max-width: 768.98px)         /* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px)         /* Small devices (landscape phones, 576px and up) */
 {
+    /* GENERAL */
+    #nowShowingContainer h3, #comingSoonContainer h3
+    {
+        font-size: 2rem;
+    }
+
+    #nowShowingContainer p, #comingSoonContainer p 
+    {
+        font-size: 1.3rem;
+    }
+
+    body > div, footer
+    {
+        grid-column-start: 1;
+    }
+
+
     /* NAVIGATION MQ */
     #topNav, #hamburgerIcon 
     {
@@ -767,6 +1115,13 @@ footer p                                            /* Footer paragraph content 
     #sideNav
     {
         display: none;
+        width: 100%;
+    }
+
+    #sideNavHeader
+    {
+        display: grid;
+        grid-template-columns: 50px 1fr 50px;
     }
 
     body 
@@ -776,9 +1131,9 @@ footer p                                            /* Footer paragraph content 
 
     header 
     {
-        height: 600px;
         max-width: 1500px;
         margin-bottom: 30px;
+        grid-row: 1;
     }
 
     #hamburgerIcon                                     
@@ -789,6 +1144,11 @@ footer p                                            /* Footer paragraph content 
     #hamburgerIcon > i
     {
         margin: 25% 0 0 25%;
+    }
+
+    #sideNav > section > div:nth-child(3)
+    {
+        margin: 0px 150px;
     }
 
     #topNav > div > div > img
@@ -813,21 +1173,11 @@ footer p                                            /* Footer paragraph content 
 
 
     /* HOME MQ */
-    body 
+    #topNav
     {
-        grid-template-columns: 1fr;
-    }
-
-    header 
-    {
-        height: 600px;
-        max-width: 1500px;
-        margin-bottom: 30px;
-    }
-
-    #topNav > div
-    {
-        height: 180px;
+        height: 100%;
+        padding: 0 50px;
+        z-index: 10;
     }
 
     #topNav > div > div > img
@@ -836,36 +1186,21 @@ footer p                                            /* Footer paragraph content 
         height: 180px;
     }
 
-    #hamburgerIcon                                     
-    {
-        height: 100%;
-    }
-
     #hamburgerIcon > i
     {
-        margin: 27% 0 20% 25%; 
+        margin: 27% 0 20% 0;
         font-size: 3rem;
     }
 
     #topNav > div > div:last-child
     {
-        margin: 25% 30% 0 0;
+        margin: 25% 0 0 0;
         font-size: 3rem;
-    }
-
-    #releasesPageContainer
-    {
-        margin: 0 35px;
     }
 
     #homePageContainer > main
     {
-        padding: 0 50px 0 50px;
-    }
-
-    #homePageContainer > main > section:first-child > div > div:first-child
-    {
-        margin-top: 140px;
+        padding: 0 50px 50px 50px;
     }
 
     #homePageContainer > main > section > div > div:nth-child(2), #homePageContainer > main > section > div > div:last-child
@@ -878,9 +1213,10 @@ footer p                                            /* Footer paragraph content 
         margin-bottom: 0;
     }
 
-    #homePageContainer iframe
+    #homePageContainer > main > section > div > div > iframe
     {
         height: 50vh;
+        padding-top: 0;
     }
 
     #infoSectGrid
@@ -943,14 +1279,19 @@ footer p                                            /* Footer paragraph content 
 
     #releaseCoverImage                                                  
     {
-        width: 100vw;
+        width: 100%;
+    }
+
+    #releasesPageContainer > main 
+    {
+        padding: 0 50px;
     }
 
     #releasesPageContainer h1                                          
     {
         font-size: 4rem;
-        padding: 40px 100px 0 60px;
-        width: 70%;
+        padding: 40px 0 0 20px;
+        width: 100%;
     }
 
     #releasesPageContainer h2
@@ -967,8 +1308,77 @@ footer p                                            /* Footer paragraph content 
 
     #releasesPageContainer p
     {
-        font-size: 1.6rem;
+        font-size: 1.3rem;
         padding: 0 15px 15px 15px;
+    }
+
+    #movieDetailsModal
+    {
+        z-index: 200;
+    }
+
+    #movieModalContent
+    {
+        width: 450px;
+        height: 650px;
+        column-gap: 0;
+        grid-template-columns: 1fr 50px;
+    }
+
+    #movieDetailsModal > main > section > div > img
+    {
+        height: 500px;
+        grid-column: 1;
+        justify-self: center;
+        padding: 40px 0 30px 0;
+    }
+
+    #movieDetailsModal > main > section > div > div
+    {
+        grid-column: 1;
+        padding: 0 30px;
+    }
+
+    #movieModalContent > i
+    {
+        grid-column: 2;
+        grid-row: 1;
+        margin: 40px 20px 0 0;
+    }
+
+    #movieDetailsModal > main > section > div > div > h1
+    {
+        font-size: 2.5rem;
+        text-align: center;
+        padding-bottom: 20px;
+    }
+
+    #movieDetailsModal > main > section > div > div > h2, #movieDetailsModal h2
+    {
+        font-size: 1.6rem;
+        padding-bottom: 10px;
+    }
+
+    #movieDetailsModal > main > section > div > div > p, #movieDetailsModal p
+    {
+        font-size: 1.1rem;
+    }
+
+    #trailerGrid > a
+    {
+        font-size: 2.4rem;
+    }
+
+    #ratingsGrid
+    {
+        margin-bottom: 30px;
+    }
+
+
+    /* UNDER CONSTRUCTION */
+    .underConstructionSection
+    {
+        margin: 0 50px;
     }
 
     
@@ -980,7 +1390,7 @@ footer p                                            /* Footer paragraph content 
 
     #comingSoonContainer
     {
-        margin-bottom: 100px;
+        margin-bottom: 50px;
     }
 
     footer > section > div > i                           /* subsection icons */
@@ -1016,17 +1426,19 @@ footer p                                            /* Footer paragraph content 
     footer h3                                           /* Footer headings */
     {
         padding-bottom: 20px;
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
 
     footer p, #affiliateNote                                            /* Footer paragraph content */
     {
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
 
     #affiliateNote                                      /* Affiliate note */
     {
         margin-bottom: 20px;
+        font-size: 0.9rem;
+        line-height: 1.3rem;
     }
 }
 
@@ -1034,11 +1446,16 @@ footer p                                            /* Footer paragraph content 
 @media (min-width: 768px) and (max-width: 991.98px)         /* Medium devices (tablets, 768px and up) */
 {
     /* NAVIGATION MQ */
-    body > div:nth-child(3) 
+    body > div, footer
     {
-        grid-row-start: 2;
+        grid-column-start: 1;
     }
 
+    #topNav
+    {
+        padding: 0 50px;
+        z-index: 10;
+    }
     
     #topNav, #hamburgerIcon 
     {
@@ -1048,34 +1465,50 @@ footer p                                            /* Footer paragraph content 
     #sideNav
     {
         display: none;
+        z-index: 50;
+        width: 100%;
+    }
+
+    #sideNavHeader
+    {
+        grid-template-columns: 50px 1fr 50px;
     }
 
     body 
     {
         grid-template-columns: 1fr;
+        grid-template-rows: 0fr;
     }
 
     header 
     {
-        height: 600px;
         max-width: 1500px;
         margin-bottom: 30px;
     }
 
     #topNav > div
     {
-        height: 180px;
+        height: 100%;
     }
 
     #topNav > div > div > img
     {
         margin-right: 0;
-        height: 180px;
+        height: 150px;
     }
 
+    #topNav > div > div:last-child
+    {
+        font-size: 2.5rem;
+        cursor: pointer;
+    }
+
+
+    /* HAMBURGER MENU */
     #hamburgerIcon                                     
     {
         height: 100%;
+        cursor: pointer;
     }
 
     #hamburgerIcon > i
@@ -1083,16 +1516,23 @@ footer p                                            /* Footer paragraph content 
         font-size: 2.5rem;
     }
 
-    #topNav > div > div:last-child
+    #sideNav > section > div:nth-child(3)
     {
-        font-size: 2.5rem;
+        margin: 0px 250px 50px 250px;
+    }
+
+
+    /* UNDER CONSTRUCTION */
+    .underConstructionSection
+    {
+        margin: 0 70px;
     }
 
 
     /* HOME MQ */
     #homePageContainer > main
     {
-        padding: 0 70px 90px 70px;
+        padding: 0 70px 0 70px;
     }
 
     #homePageContainer > main > section:first-child > div > div:first-child
@@ -1105,10 +1545,11 @@ footer p                                            /* Footer paragraph content 
         margin-top: 30px;
     }
 
-    #homePageContainer iframe
+    #homePageContainer > main > section > div > div > iframe
     {
         margin-top: 0;
         height: 80vh;
+        padding-top: 0;
     }
 
     #infoSectGrid
@@ -1175,20 +1616,82 @@ footer p                                            /* Footer paragraph content 
 
     #releaseCoverImage                                                  
     {
-        width: 100vw;
+        width: 100%;
         background-image: url("../img/ExtraSmallReleasesHero.png");
     }
   
     #releasesPageContainer h1                                          
     {
         font-size: 4rem;
-        padding: 40px 100px 0 60px;
-        width: 70%;
+        padding: 40px 0 0 60px;
+        width: 100%;
     }
 
-    #homePageContainer iframe
+    #releasesPageContainer > main
     {
-        padding-top: 0;
+        padding: 0 50px 50px 50px;
+    }
+
+    #movieDetailsModal
+    {
+        z-index: 200;
+    }
+
+    #movieModalContent
+    {
+        width: 600px;
+        height: 550px;
+        column-gap: 0;
+        grid-template-columns: 1fr 50px;
+    }
+
+    #movieDetailsModal > main > section > div > img
+    {
+        height: 500px;
+        grid-column: 1;
+        justify-self: center;
+        padding: 40px 0 30px 0;
+    }
+
+    #movieDetailsModal > main > section > div > div
+    {
+        grid-column: 1;
+        padding: 0 30px;
+    }
+
+    #movieModalContent > i
+    {
+        grid-column: 2;
+        grid-row: 1;
+        margin: 40px 20px 0 0;
+    }
+
+    #movieDetailsModal > main > section > div > div > h1
+    {
+        font-size: 2.5rem;
+        text-align: center;
+        padding-bottom: 20px;
+    }
+
+    #movieDetailsModal > main > section > div > div > h2, #movieDetailsModal h2
+    {
+        font-size: 1.6rem;
+        padding-bottom: 10px;
+    }
+
+    #movieDetailsModal > main > section > div > div > p, #movieDetailsModal p
+    {
+        font-size: 1.1rem;
+    }
+
+    #trailerGrid > a
+    {
+        font-size: 1.8rem;
+    }
+
+    #ratingsGrid
+    {
+        margin-bottom: 30px;
     }
 
     
@@ -1242,14 +1745,47 @@ footer p                                            /* Footer paragraph content 
 @media (min-width: 992px) and (max-width: 1199.98px)        /* Large devices (desktops, 992px and up) */
 {
     /* NAVIGATION MQ */
-    #sideNav
-    {
-        margin-left: 20px;
-    }
-
     #sideNav > section > div > img
     {
-        padding-top: 50px;
+        width: 220px;
+    }
+
+    #sideNav > section > ul > li:not(last-child)
+    {
+        margin-bottom: 30px;
+    }
+
+    #sideNavHeader > img
+    {
+        grid-column: 1;
+    }
+
+
+    /* HOME MQ */
+    #infoSectGrid
+    {
+        padding: 80px 0;
+    }
+
+    #infoSectGrid > img
+    {
+        width: 330px;
+        justify-self: center;
+    }
+
+    #homePageContainer p
+    {
+        font-size: 0.9rem;
+    }
+
+    #promoGrid
+    {
+        grid-template-columns: 200px 200px 200px;
+    }
+
+    #promoGrid h3
+    {
+        font-size: 1.1rem;
     }
 
     
@@ -1261,9 +1797,9 @@ footer p                                            /* Footer paragraph content 
     
     #releasesPageContainer h1
     {
-        font-size: 4rem;
-        padding: 70px 100px 0 60px;
-        width: 90%;
+        font-size: 3.5rem;
+        padding: 40px 0px 0 20px;
+        width: 100%;
     }
 
     #nowShowingContainer, #comingSoonContainer                  
@@ -1281,10 +1817,5 @@ footer p                                            /* Footer paragraph content 
     footer h3
     {
         font-size: 1.4rem;
-    }
-
-    footer p, #affiliateNote
-    {
-        font-size: 1.1rem;
     }
 }

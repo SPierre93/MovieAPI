@@ -22,7 +22,7 @@
             </div>
 
             <div>
-                <i class="fas fa-ticket-alt"></i>
+                <i class="fas fa-ticket-alt" id="ticketButton"></i>
             </div>
         </div>
     </div>
@@ -30,8 +30,9 @@
     <header>        
         <nav id="sideNav">
             <section>
-                <div>
+                <div id="sideNavHeader">
                     <img src="img/Spotlight Cinemas Original.png" alt="Spotlight Cinemas logo">
+                    <i class="fas fa-window-close" id="closeMenuButton"></i> 
                 </div>
                 
                 <ul>
@@ -222,14 +223,43 @@
     <div id="movieDetailsModal">
         <main>
             <section>
-                <div id="transparentBackground">
-                    <img src="img/test-modal-poster.jpeg" alt="Test movie poster for modal">
+                <div id="movieModalContent">
+                    <img id="modalPoster" src="img/test-modal-poster.jpeg" alt="Test movie poster for modal">
                     <div>
-                        <h1> Black Widow </h1>
+                        <h1 id="modalMovieTitle"> Black Widow </h1>
+
                         <h2> Synopsis </h2>
-                        <p> Nat finally gets her movie hooray! </p>
-                        <p> Release date: 22/11/20 </p>
-                        <p> Review: It's great as we all knew </p>
+                        <p id="modalSynopsis"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos eveniet minus ipsam beatae velit accusantium omnis doloremque, minima et asperiores nemo? Autem aut maxime molestiae, quo amet labore voluptatibus quisquam accusamus inventore quas consectetur sed saepe corrupti ipsum? Exercitationem repudiandae quam earum eos architecto cumque, magnam beatae! Eum, repellat hic? </p>
+                        
+                        <div id="ReleasesGrid">    
+                            <div>
+                                <h2> Release date </h2>
+                                <p id="releaseDate"> John Doe </p>
+                            </div>
+
+                            <div id="trailerGrid">
+                                <h2> Watch trailer </h2>
+                                <a href="https://youtu.be/2PukutKkEpg" id="movieTrailer" target="_BLANK"> <i class="far fa-play-circle" alt="Image/play button to go to movie trailer"></i></a>
+                            </div>
+                        </div>
+                    
+                        <div id="ratingsGrid">
+                            <div>
+                                <div class="box">
+                                    <div class="percent">
+                                        <svg>
+                                            <circle cx="40" cy="40" r="40"></circle>
+                                            <circle id="circleRating" cx="40" cy="40" r="40"></circle>
+                                        </svg>
+                                        
+                                        <div class="number">
+                                            <h2 id="ratingScore"> 100 </h2><span> % </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h2> Viewers' Rating </h2>
+                            </div>
+                        </div>
                     </div>
                     <i class="fas fa-window-close"></i>
                 </div>
@@ -239,7 +269,7 @@
     
     <div id="ticketsPageContainer">
         <main>
-            <section>
+            <section class="underConstructionSection">
                 <img class="underConstruction animate__animated animate__fadeIn" src="img/Page Under Construction.png" alt="Message stating that the web page is under construction">
             </section>
         </main>
@@ -247,7 +277,7 @@
 
     <div id="eventBookingsPageContainer">
         <main>
-            <section>
+            <section class="underConstructionSection">
                 <img class="underConstruction animate__animated animate__fadeIn" src="img/Page Under Construction.png" alt="Message stating that the web page is under construction">
             </section>
         </main>
@@ -255,7 +285,7 @@
 
     <div id="contactUsPageContainer">
         <main>
-            <section>
+            <section class="underConstructionSection">
                 <img class="underConstruction animate__animated animate__fadeIn" src="img/Page Under Construction.png" alt="Message stating that the web page is under construction">
             </section>
         </main>

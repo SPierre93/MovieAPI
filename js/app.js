@@ -21,19 +21,140 @@ const main=()=>
     eventBooking.style.display="none";
     contactPage.style.display="none";
     navigationButtons[0].style.borderBottom="3px solid #ff0b76";
-    navModal.style.display="none;"
 
 
     //Function to trigger automatic scrolling to the top of the page
-    const scrollToTop=event=>{
+    const scrollToTop=()=>{
         window.scrollTo(0, 0); 
     }
 
-    const closeMenuOnClick=event=>{
-        navModal.style.display="none";
-        closeButton.style.display="none";
-        bodyOpenModal.style.overflow="visible";
+    //Function to close side navigation
+    const closeMenuOnClick=()=>{
+        if (window.matchMedia("(min-width: 992px)").matches) //Large and up
+        {
+            navModal.style.display="block";
+        }
+
+        else    //Medium and below
+        {
+            navModal.style.display="none";
+            closeButton.style.display="none";
+            bodyOpenModal.style.overflow="visible";
+        }  
     }
+
+
+    //Ticket button 
+    ticketButton.addEventListener("click",(event)=>{        
+        scrollToTop();
+        
+        homePage.style.display="none";
+        releasesPage.style.display="none";
+        ticketsPage.style.display="block";
+        eventBooking.style.display="none";
+        contactPage.style.display="none";
+        bodyOpenModal.style.overflow="visible";    
+
+        navigationButtons[0].style.borderBottom="none";
+        navigationButtons[1].style.borderBottom="none";
+        navigationButtons[2].style.borderBottom="3px solid #ff0b76";
+        navigationButtons[3].style.borderBottom="none";
+        navigationButtons[4].style.borderBottom="none";
+    })
+
+    
+    //Navigation Sidebar
+    navigationButtons.forEach(function(button){
+        button.addEventListener("click",(event)=>{
+            event.preventDefault();
+            closeMenuOnClick();
+            
+            if(button == navigationButtons[0])              //Home button
+            {               
+                scrollToTop();
+
+                homePage.style.display="block";
+                releasesPage.style.display="none";
+                ticketsPage.style.display="none";
+                eventBooking.style.display="none";
+                contactPage.style.display="none";
+
+                navigationButtons[0].style.borderBottom="3px solid #ff0b76";
+                navigationButtons[1].style.borderBottom="none";
+                navigationButtons[2].style.borderBottom="none";
+                navigationButtons[3].style.borderBottom="none";
+                navigationButtons[4].style.borderBottom="none";
+            }
+
+            else if(button == navigationButtons[1])         //Releases button
+            {
+                scrollToTop();
+
+                homePage.style.display="none";
+                releasesPage.style.display="block";
+                ticketsPage.style.display="none";
+                eventBooking.style.display="none";
+                contactPage.style.display="none";
+
+                navigationButtons[0].style.borderBottom="none";
+                navigationButtons[1].style.borderBottom="3px solid #ff0b76";
+                navigationButtons[2].style.borderBottom="none";
+                navigationButtons[3].style.borderBottom="none";
+                navigationButtons[4].style.borderBottom="none";
+            }
+
+            else if(button == navigationButtons[2])         //Tickets button
+            {
+                scrollToTop();
+
+                homePage.style.display="none";
+                releasesPage.style.display="none";
+                ticketsPage.style.display="block";
+                eventBooking.style.display="none";
+                contactPage.style.display="none";
+
+                navigationButtons[0].style.borderBottom="none";
+                navigationButtons[1].style.borderBottom="none";
+                navigationButtons[2].style.borderBottom="3px solid #ff0b76";
+                navigationButtons[3].style.borderBottom="none";
+                navigationButtons[4].style.borderBottom="none";
+            }
+
+            else if(button == navigationButtons[3])         //Book Events button
+            {
+                scrollToTop();
+
+                homePage.style.display="none";
+                releasesPage.style.display="none";
+                ticketsPage.style.display="none";
+                eventBooking.style.display="block";
+                contactPage.style.display="none";
+
+                navigationButtons[0].style.borderBottom="none";
+                navigationButtons[1].style.borderBottom="none";
+                navigationButtons[2].style.borderBottom="none";
+                navigationButtons[3].style.borderBottom="3px solid #ff0b76";
+                navigationButtons[4].style.borderBottom="none";
+            }
+
+            else if(button == navigationButtons[4])             //Contact us button
+            {
+                scrollToTop();
+
+                homePage.style.display="none";
+                releasesPage.style.display="none";
+                ticketsPage.style.display="none";
+                eventBooking.style.display="none";
+                contactPage.style.display="block";
+
+                navigationButtons[0].style.borderBottom="none";
+                navigationButtons[1].style.borderBottom="none";
+                navigationButtons[2].style.borderBottom="none";
+                navigationButtons[3].style.borderBottom="none";
+                navigationButtons[4].style.borderBottom="3px solid #ff0b76";
+            } 
+        });
+    });  
 
 
     //Hamburger menu toggle
@@ -65,121 +186,19 @@ const main=()=>
     })
 
 
-    //Ticket button 
-    ticketButton.addEventListener("click",(event)=>{        
-        scrollToTop();
-        
-        homePage.style.display="none";
-        releasesPage.style.display="none";
-        ticketsPage.style.display="block";
-        eventBooking.style.display="none";
-        contactPage.style.display="none";
-        bodyOpenModal.style.overflow="visible";    
+    window.addEventListener("resize", function() {
+        if (window.matchMedia("(min-width: 992px)").matches) //Large and up
+        {
+            navModal.style.display="block";
+            closeButton.style.display="none";
+        }
 
-        navigationButtons[0].style.borderBottom="none";
-        navigationButtons[1].style.borderBottom="none";
-        navigationButtons[2].style.borderBottom="3px solid #ff0b76";
-        navigationButtons[3].style.borderBottom="none";
-        navigationButtons[4].style.borderBottom="none";
-    })
-
-    
-    //Navigation Sidebar
-    navigationButtons.forEach(function(button){
-        button.addEventListener("click",(event)=>{
-            event.preventDefault();
-            
-            if(button == navigationButtons[0])              //Home button
-            {               
-                closeMenuOnClick();
-                scrollToTop();
-
-                homePage.style.display="block";
-                releasesPage.style.display="none";
-                ticketsPage.style.display="none";
-                eventBooking.style.display="none";
-                contactPage.style.display="none";
-
-                navigationButtons[0].style.borderBottom="3px solid #ff0b76";
-                navigationButtons[1].style.borderBottom="none";
-                navigationButtons[2].style.borderBottom="none";
-                navigationButtons[3].style.borderBottom="none";
-                navigationButtons[4].style.borderBottom="none";
-            }
-
-            else if(button == navigationButtons[1])         //Releases button
-            {
-                closeMenuOnClick();
-                scrollToTop();
-
-                homePage.style.display="none";
-                releasesPage.style.display="block";
-                ticketsPage.style.display="none";
-                eventBooking.style.display="none";
-                contactPage.style.display="none";
-
-                navigationButtons[0].style.borderBottom="none";
-                navigationButtons[1].style.borderBottom="3px solid #ff0b76";
-                navigationButtons[2].style.borderBottom="none";
-                navigationButtons[3].style.borderBottom="none";
-                navigationButtons[4].style.borderBottom="none";
-            }
-
-            else if(button == navigationButtons[2])         //Tickets button
-            {
-                closeMenuOnClick();
-                scrollToTop();
-
-                homePage.style.display="none";
-                releasesPage.style.display="none";
-                ticketsPage.style.display="block";
-                eventBooking.style.display="none";
-                contactPage.style.display="none";
-
-                navigationButtons[0].style.borderBottom="none";
-                navigationButtons[1].style.borderBottom="none";
-                navigationButtons[2].style.borderBottom="3px solid #ff0b76";
-                navigationButtons[3].style.borderBottom="none";
-                navigationButtons[4].style.borderBottom="none";
-            }
-
-            else if(button == navigationButtons[3])         //Book Events button
-            {
-                closeMenuOnClick();
-                scrollToTop();
-
-                homePage.style.display="none";
-                releasesPage.style.display="none";
-                ticketsPage.style.display="none";
-                eventBooking.style.display="block";
-                contactPage.style.display="none";
-
-                navigationButtons[0].style.borderBottom="none";
-                navigationButtons[1].style.borderBottom="none";
-                navigationButtons[2].style.borderBottom="none";
-                navigationButtons[3].style.borderBottom="3px solid #ff0b76";
-                navigationButtons[4].style.borderBottom="none";
-            }
-
-            else if(button == navigationButtons[4])             //Contact us button
-            {
-                closeMenuOnClick();
-                scrollToTop();
-
-                homePage.style.display="none";
-                releasesPage.style.display="none";
-                ticketsPage.style.display="none";
-                eventBooking.style.display="none";
-                contactPage.style.display="block";
-
-                navigationButtons[0].style.borderBottom="none";
-                navigationButtons[1].style.borderBottom="none";
-                navigationButtons[2].style.borderBottom="none";
-                navigationButtons[3].style.borderBottom="none";
-                navigationButtons[4].style.borderBottom="3px solid #ff0b76";
-            } 
-        });
-    });  
+        else    //Medium and below
+        {
+            navModal.style.display="none";
+            closeButton.style.display="block";
+        }
+    });
 
 
     //Releases Page
